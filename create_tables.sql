@@ -1,9 +1,19 @@
+CREATE TABLE ticker_name (
+	ticker VARCHAR PRIMARY KEY,
+	company_name VARCHAR,
+	avg_opening FLOAT,
+	avg_closing FLOAT,
+	max_high FLOAT,
+	min_low FLOAT
+);
+
 CREATE TABLE sentiment (
 	index int PRIMARY KEY,
-	symbol VARCHAR,
+	ticker VARCHAR,
 	date DATE,
 	news_title VARCHAR,
-	compound_score FLOAT
+	compound_score FLOAT,
+	FOREIGN KEY (ticker) REFERENCES ticker_name(ticker)
 );
 
 CREATE TABLE ticker_daily (
@@ -13,14 +23,6 @@ CREATE TABLE ticker_daily (
 	closing FLOAT,
 	high FLOAT,
 	low FLOAT,
-	date DATE
-);
-
-CREATE TABLE ticker_name (
-	symbol VARCHAR PRIMARY KEY,
-	average FLOAT,
-	... ...,
-	... ...,
-	... ...,
-	... ....
+	date DATE,
+	FOREIGN KEY (ticker) REFERENCES ticker_name(ticker)
 );
