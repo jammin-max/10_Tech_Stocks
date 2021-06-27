@@ -15,7 +15,7 @@ CREATE TABLE "ticker_name" (
      )
 );
 
-CREATE TABLE "Sentiment" (
+CREATE TABLE "sentiment" (
     "index" INT   NOT NULL,
     "ticker" VARCHAR   NOT NULL,
     "date" DATE   NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE "Sentiment" (
      )
 );
 
-CREATE TABLE "ticker_daily-" (
+CREATE TABLE "ticker_daily" (
     "index" INT   NOT NULL,
     "ticker" VARCHAR   NOT NULL,
     "opening" FLOAT   NOT NULL,
