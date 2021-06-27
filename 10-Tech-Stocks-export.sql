@@ -19,7 +19,7 @@ CREATE TABLE "sentiment" (
     "index" INT   NOT NULL,
     "ticker" VARCHAR   NOT NULL,
     "date" DATE   NOT NULL,
-    "new_title" VARCHAR   NOT NULL,
+    "news_title" VARCHAR   NOT NULL,
     "compound_score" FLOAT   NOT NULL,
     CONSTRAINT "pk_Sentiment" PRIMARY KEY (
         "index"
@@ -31,17 +31,17 @@ CREATE TABLE "ticker_daily" (
     "ticker" VARCHAR   NOT NULL,
     "opening" FLOAT   NOT NULL,
     "closing" FLOAT   NOT NULL,
-    "High" FLOAT   NOT NULL,
-    "Low" FLOAT   NOT NULL,
+    "high" FLOAT   NOT NULL,
+    "low" FLOAT   NOT NULL,
     "date" DATE   NOT NULL,
     CONSTRAINT "pk_ticker_daily-" PRIMARY KEY (
         "index"
      )
 );
 
-ALTER TABLE "Sentiment" ADD CONSTRAINT "fk_Sentiment_ticker" FOREIGN KEY("ticker")
+ALTER TABLE "sentiment" ADD CONSTRAINT "fk_Sentiment_ticker" FOREIGN KEY("ticker")
 REFERENCES "ticker_name" ("ticker");
 
-ALTER TABLE "ticker_daily-" ADD CONSTRAINT "fk_ticker_daily-_ticker" FOREIGN KEY("ticker")
+ALTER TABLE "ticker_daily" ADD CONSTRAINT "fk_ticker_daily-_ticker" FOREIGN KEY("ticker")
 REFERENCES "ticker_name" ("ticker");
 
